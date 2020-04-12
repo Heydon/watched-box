@@ -13,7 +13,9 @@
     "uglify": "uglifyjs watched-box.js -o watched-box.min.js"
   },
   "husky": {
-    "pre-commit": "npm run uglify"
+    "hooks": {
+      "pre-commit": "npm run uglify"
+    }
   },
   "repository": {
     "type": "git",
