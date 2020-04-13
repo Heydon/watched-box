@@ -98,7 +98,6 @@ export default class WatchedBox extends HTMLElement {
   }
 
   connectedCallback() {
-    this.style.display = 'block';
     this.observe();
   }
 
@@ -114,8 +113,4 @@ export default class WatchedBox extends HTMLElement {
 // do not initialize, leaving the element as just an inert block
 if (ResizeObserver || 'customElements' in window) {
   customElements.define('watched-box', WatchedBox);
-} else {
-  [...document.querySelectorAll('watched-box')].forEach(wb => {
-    wb.style.display = 'block';
-  });
 }

@@ -1,12 +1,15 @@
 {
   "name": "watched-box",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A custom element A custom element for ResizeObserver observation, accepting any CSS length units",
   "main": "watched-box.js",
   "dependencies": {},
   "devDependencies": {
     "husky": "^4.2.5",
     "uglify-es": "^3.3.9"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
