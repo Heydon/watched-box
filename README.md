@@ -61,6 +61,8 @@ Note that units are dynamically converted for comparison, meaning you can mix th
 
 ### Exploring relativity
 
+![A box that is 200px squared](illustrations/200px_by_200px.png)
+
 This one is more complex, and shows the power of `<watched-box>`. The element has the following CSS:
 
 ```css
@@ -82,4 +84,12 @@ Here's the same result, but with the `prefix="wbx"` prop/value supplied:
 ```html
 <watched-box widthbreaks="201px, 1em" heightbreaks="199px" prefix="wbx" style="display: block;" class="wbx-w-lte-201px wbx-w-lte-1em wbx-h-gt-199px wbx-square"></watched-box>
 ```
+
+## Props
+
+Custom elements like `<watched-box>` take props as attributes. When the values change, `<watched-box>` reinitializes `ResizeObserver` observation.
+
+<table>
+
+</table>
 
