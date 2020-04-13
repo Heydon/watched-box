@@ -51,6 +51,7 @@ A box with a width of `405px` and a height of `9.5em`.
 
 ```html
 <watched-box widthbreaks="405px" heightbreaks="9em" class="w-lte-405px h-gt-9em landscape"></watched-box>
+```
 
 ### Multiple breaks for each dimension, using different units
 
