@@ -90,6 +90,24 @@ Here's the same result, but with the `prefix="wbx"` prop/value supplied:
 Custom elements like `<watched-box>` take props as attributes. When the values change, `<watched-box>` reinitializes `ResizeObserver` observation.
 
 <table>
-
+  <tr>
+    <th>Name</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>widthBreaks</code></td>
+    <td><code>'1024px'</code></td>
+    <td>{string} A comma-separated list of CSS length values (e.g. <code>widthBreaks="20vw, 65ch, 300px, 900px"</code>)</td>
+  </tr>
+  <tr>
+    <td><code>heightBreaks</code></td>
+    <td><code>'768px'</code></td>
+    <td>{string} A comma-separated list of CSS length values (e.g. <code>heightBreaks="50vh, 800px, 9.25em, 200em"</code>)</td>
+  <tr>
+    <td><code>prefix</code></td>
+    <td><code>null</code></td>
+    <td>{string} A prefix for each generated class, for namespacing purposes (e.g. <code>prefix="wbox"</code>)</td>
+  </tr>
 </table>
 
