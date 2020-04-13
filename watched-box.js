@@ -4,8 +4,9 @@
  * A custom element for ResizeObserver observation, accepting any CSS length units
  * @property {string} widthBreaks=1024px Comma-separated list of CSS `width` values
  * @property {string} heightBreaks=768px Comma-separated list of CSS `height` values
+ * @property {string} prefix=null A string to prefix each generated class
  */
-class WatchedBox extends HTMLElement {
+export default class WatchedBox extends HTMLElement {
   constructor() {
     super();
     // Convert supplied CSS length to pixels
@@ -26,13 +27,15 @@ class WatchedBox extends HTMLElement {
       return pixels;
     }
 
+    this.getPrefix = () => this.prefix ? `${this.prefix}-` : '';
+
     this.toggleClasses = (watched, dimension, value, contentRect) => {
-      const length = dimension === 'width' ? contentRect.width : contentRect.height;
+      const length = dimension === 'w' ? contentRect.width : contentRect.height;
       // contentRect values are in pixels, hence
       // the use of the `getPixels` conversion function
       const q = length <= this.getPixels(value);
-      watched.target.classList.toggle(`${dimension}-lte-${value}`, q);
-      watched.target.classList.toggle(`${dimension}-gt-${value}`, !q);
+      watched.target.classList.toggle(`${this.getPrefix()}${dimension}-lte-${value}`, q);
+      watched.target.classList.toggle(`${this.getPrefix()}${dimension}-gt-${value}`, !q);
     }
 
     this.observe = () => {
@@ -43,19 +46,19 @@ class WatchedBox extends HTMLElement {
         // Take the supplied widths, from the width attribute value
         const widths = this.widthBreaks.replace(/ /g,'').split(',');
         widths.forEach(width => {
-          this.toggleClasses(watched, 'width', width, contentRect);
+          this.toggleClasses(watched, 'w', width, contentRect);
         });
         // Take the supplied height, from the height attribute value
         const heights = this.heightBreaks.replace(/ /g,'').split(',');
         heights.forEach(height => {
-          this.toggleClasses(watched, 'height', height, contentRect);
+          this.toggleClasses(watched, 'h', height, contentRect);
         });
 
         // Orientation classes to mimic the orientation @media query
         const ratio = contentRect.width / contentRect.height;
-        watched.target.classList.toggle('watched-box-landscape', ratio > 1);
-        watched.target.classList.toggle('watched-box-portrait', ratio < 1);
-        watched.target.classList.toggle('watched-box-square', ratio == 1);
+        watched.target.classList.toggle(`${this.getPrefix()}landscape`, ratio > 1);
+        watched.target.classList.toggle(`${this.getPrefix()}portrait`, ratio < 1);
+        watched.target.classList.toggle(`${this.getPrefix()}square`, ratio == 1);
       });
 
       this.ro.observe(this);
@@ -80,6 +83,14 @@ class WatchedBox extends HTMLElement {
 
   set heightBreaks(val) {
     return this.setAttribute('heightBreaks', val);
+  }
+
+  get prefix() {
+    return this.getAttribute('prefix') || null;
+  }
+
+  set prefix(val) {
+    return this.setAttribute('prefix', val);
   }
 
   static get observedAttributes() {
