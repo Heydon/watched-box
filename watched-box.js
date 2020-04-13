@@ -109,8 +109,7 @@ export default class WatchedBox extends HTMLElement {
   }
 }
 
-// If either ResizeObserver or Custom Elements are not supported,
-// do not initialize, leaving the element as just an inert block
-if (ResizeObserver || 'customElements' in window) {
+// If ResizeObserver and Custom Elements are supported, initialize
+if (ResizeObserver && 'customElements' in window) {
   customElements.define('watched-box', WatchedBox);
 }
