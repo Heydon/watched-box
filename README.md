@@ -1,5 +1,7 @@
 # Watched Box
 
+**Declarative container queries FTW!**
+
 A custom element as a `ResizeObserver` root. The easiest way to get working with `ResizeObserver` and creating [container queries](https://ethanmarcotte.com/wrote/on-container-queries/) with JavaScript. Unlike many implementations, you can use _any_ CSS length units.
 
 ## Get started
@@ -75,7 +77,7 @@ Note the large `20em` `font-size`. This is likely (depending on the context) to 
 <watched-box widthbreaks="201px, 1em" heightbreaks="199px" style="display: block;" class="w-lte-201px w-lte-1em h-gt-199px square"></watched-box>
 ```
 
-Here's the same result, but with the `prefix="wbx"` prop' supplied:
+Here's the same result, but with the `prefix="wbx"` prop/value supplied:
 
 ```html
 <watched-box widthbreaks="201px, 1em" heightbreaks="199px" prefix="wbx" style="display: block;" class="wbx-w-lte-201px wbx-w-lte-1em wbx-h-gt-199px wbx-square"></watched-box>
