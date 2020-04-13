@@ -2,7 +2,7 @@
 
 **Declarative container queries FTW!**
 
-A custom element as a `ResizeObserver` root. The easiest way to get working with `ResizeObserver` and creating [container queries](https://ethanmarcotte.com/wrote/on-container-queries/) with JavaScript. Unlike many implementations, you can use _any_ CSS length units.
+A custom element as a `ResizeObserver` root. The easiest way to get working with `ResizeObserver` and creating [container queries](https://ethanmarcotte.com/wrote/on-container-queries/) with JavaScript. Unlike many implementations, you can use _any_ CSS length units, and mix them together.
 
 ## Get started
 
