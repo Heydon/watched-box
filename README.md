@@ -33,7 +33,7 @@ Depending on the aspect ratio, one of the following classes will also be appende
 * `landscape`
 * `square`
 
-Finally, it is recommended you set `watched-box` to `display: block` by default in your CSS. You'll rarely be working with `<watched-box>` elements.
+Finally, it is recommended you set `watched-box` to `display: block` by default in your CSS. You'll rarely be working with inline `<watched-box>` elements.
 
 ```css
 watched-box {
@@ -51,6 +51,7 @@ A box with a width of `405px` and a height of `9.5em`.
 
 ```html
 <watched-box widthbreaks="405px" heightbreaks="9em" class="w-lte-405px h-gt-9em landscape"></watched-box>
+```
 
 ### Multiple breaks for each dimension, using different units
 
