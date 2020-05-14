@@ -137,6 +137,6 @@ Naturally, I can use negation too, if I wish:
 
 ```css
 .grid:not(.w-lte-30ch) .cell {
-  /* styles for less-than-or-equal-to 30ch width */
+  /* styles for not less-than-or-equal-to 30ch width */
 }
 ```
